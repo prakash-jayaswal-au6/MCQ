@@ -1,0 +1,23 @@
+.box {
+    width: 80%;
+}
+.desc {
+    transform: scale(0.80);
+     position: relative;
+}
+
+.block_1 ,.block_2, .block_3, .block_4{
+    padding: 10px
+}
+.option_1 , .option_2, .option_3, .option_4 {
+     padding: 5px; 
+     font-size: 2.5rem;
+}
+.input_box {
+    transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;
+}
+.button_box {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px
+}

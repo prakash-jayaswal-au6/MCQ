@@ -1,25 +1,26 @@
 const mongoose = require('mongoose')
+const { ObjectId } = mongoose.Schema.Types
 
 const QuestionSchema = new mongoose.Schema({
-    description: {
+    question: {
         type: String,
         required: true
     },
-    optionA: {
-        type: String,
+    options: {
+        type: Array,
         required: true
     },
-    optionB: {
-        type: String,
+    answers:{ 
+        type: Array,
         required: true
     },
-    optionC: {
+    category: {
         type: String,
-        required: true
+        required:true
     },
-    answer:{
-        type: String,
-        required: true
+    postedBy: {
+        type:ObjectId,
+        ref:"User"
     }
 })
 

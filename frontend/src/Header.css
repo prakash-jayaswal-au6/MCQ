@@ -1,0 +1,42 @@
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    align-items: center;
+    background-color: #545b64;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-family: poppins;
+    z-index: 10;
+    padding: 35px;
+}
+
+.header__logo {
+width: 100px;
+object-fit: contain;
+margin: 0 20px;
+margin-top: 18px;
+color: white;
+}
+
+
+.header_nav {
+display: flex;
+justify-content: space-evenly;
+width: 100%;
+}
+
+.header__option {
+display: flex;
+flex-direction: column;
+margin-left: 10px;
+margin-right: 10px;
+color: white;
+}
+
+.header__optionLine {
+font-size: 20px;
+}
+

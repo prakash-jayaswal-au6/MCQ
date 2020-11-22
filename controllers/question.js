@@ -30,59 +30,30 @@ exports.get_one = async (req, res) => {
 
 exports.create_one = async (req, res) => {
     try {
-        const { description,optionA,optionB,optionC,answer } = req.body
-
-        const question = await Question.create({
-            description,
-            optionA,
-            optionB,
-            optionC,
-            answer
+        const { question, options, answers,category } = req.body
+        const questionDetail = await Question.create({
+            question,
+            options,
+            answers,
+            category,
+            postedBy:req.userData.userId
         })
-
-        return res.status(201).json(question)
+        //  console.log(typeof(questionDetail))
+        return res.status(201).json(questionDetail)
     } catch (error) {
         return res.status(500).json({"error":error})
     }
 }
 
-exports.update_one = async (req, res) => {
-    try {
-        const _id = req.params.id 
-        const { description, optionA,optionB,optionC,answer } = req.body
 
-        let question = await Question.findOne({_id})
-
-        if(!question){
-            question = await Question.create({
-                description,
-                optionA,
-                optionB,
-                optionC,
-                answer
-            })    
-            return res.status(201).json(question)
-        }else{
-            question.description = description
-            question.optionA = optionA
-            question.optionB = optionB
-            question.optionC = optionC
-            question.answer = answer
-            await question.save()
-            return res.status(200).json(question)
-        }
-    } catch (error) {
-        return res.status(500).json({"error":error})
-    }
-}
 
 exports.delete_one = async (req, res) => {
     try {
         const _id = req.params.id 
 
-        const question = await Question.deleteOne({_id})
+        const mcq = await Question.deleteOne({_id})
 
-        if(question.deletedCount === 0){
+        if(mcq.deletedCount === 0){
             return res.status(404).json({message:"successfully deleted"})
         }else{
             return res.status(204).json()

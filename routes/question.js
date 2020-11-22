@@ -12,8 +12,6 @@ router.get('/questions/:id', questionController.get_one)
 // create one MCQ DATA
 router.post('/questions',auth, questionController.create_one)
 
-// update one MCQ DATA
-router.put('/questions/:id',auth, questionController.update_one)
 
 // delete one MCQ DATA
 router.delete('/questions/:id',auth, questionController.delete_one)
